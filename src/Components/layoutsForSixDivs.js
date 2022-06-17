@@ -102,7 +102,7 @@ export const LayoutD6 = () => {
 
 const Square = styled(Grid)`
   width: 200px !important;
-  height: 180px !important;
+  height: 225px !important;
   background-color: #171717;
 `;
 

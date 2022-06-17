@@ -22,9 +22,12 @@ function App() {
   const [mediumScreen, setMediumScreen] = useState({});
   const [smallScreen, setSmallScreen] = useState({});
   const [extraSmallScreen, setExtraSmallScreen] = useState({});
-
   const [currentData, setCurrentData] = useState([]);
   const [currentOutput, setCurrentOutput] = useState([]);
+  const [muiOutput, setMuiOutput] = useState(false);
+  const [bootstrapOutput, setBootstrapOutput] = useState(false);
+
+  //Grid item value for xs/sm/lg for respective divs , eg: For div A xs={11}, for div B xs={5}
 
   const dataA5 = {
     DivA: 11,
@@ -250,7 +253,7 @@ function App() {
     <>
       <div className="main-container">
         <h2>Select no. of Divs or Containers</h2>
-        <div className="radio-buttons">
+        <div className="btn-input-divs">
           <label className="custom-radio">
             <input
               type="radio"
@@ -260,7 +263,7 @@ function App() {
                 setCurrentOutput(outputMUIFiveDivs);
               }}
             />
-            <span className="radio-btn">
+            <span className="radio-btn btn-input-divs">
               <FaRegCheckCircle className="icon-custom" />
               <div className="hobbies-icon">5</div>
             </span>
@@ -274,7 +277,7 @@ function App() {
                 setCurrentOutput(outputMUISixDivs);
               }}
             />
-            <span className="radio-btn">
+            <span className="radio-btn ">
               <FaRegCheckCircle className="icon-custom" />
               <div className="hobbies-icon">6</div>
             </span>
@@ -369,7 +372,29 @@ function App() {
       ) : (
         <>Select Div</>
       )}
-      <h2 style={{ margin: "100px", textAlign: "center" }}>{currentOutput}</h2>
+      {/* <button
+        onClick={() => {
+          setMuiOutput(!muiOutput);
+          setBootstrapOutput(false);
+        }}
+      >
+        Show output for Material UI grid
+      </button>
+      <button
+        onClick={() => {
+          setMuiOutput(false);
+          setBootstrapOutput(!bootstrapOutput);
+        }}
+      >
+        Show output for Bootstrap
+      </button> */}
+      {outputMUIFiveDivs}
+      {/* {muiOutput && (
+        <p style={{ margin: "100px", textAlign: "left" }}>{currentOutput}</p>
+      )}
+      {bootstrapOutput && (
+        <p style={{ margin: "100px", textAlign: "left" }}>Hi</p>
+      )} */}
     </>
   );
 }
