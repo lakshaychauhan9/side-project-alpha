@@ -27,6 +27,45 @@ function App() {
   const [muiOutput, setMuiOutput] = useState(false);
   const [bootstrapOutput, setBootstrapOutput] = useState(false);
 
+  const newArr = [
+    {
+      divName: "<div A/>",
+      divValues: {
+        xs: 5,
+        md: 5,
+        sm: 5,
+        lg: 5,
+      },
+    },
+    {
+      divName: "<div B/>",
+      divValues: {
+        xs: 4,
+        md: 4,
+        sm: 4,
+        lg: 4,
+      },
+    },
+    {
+      divName: "<div C/>",
+      divValues: {
+        xs: 6,
+        md: 6,
+        sm: 6,
+        lg: 6,
+      },
+    },
+    {
+      divName: "<div D/>",
+      divValues: {
+        xs: 4,
+        md: 4,
+        sm: 4,
+        lg: 4,
+      },
+    },
+  ];
+
   //Grid item value for xs/sm/lg for respective divs , eg: For div A xs={11}, for div B xs={5}
 
   const dataA5 = {
@@ -133,6 +172,18 @@ function App() {
       component: <LayoutD6 />,
     },
   ];
+
+  const newString = (arr) => {
+    return `<Grid
+            item
+            xs=${arr.divValues.xs}
+            sm=${arr.divValues.sm}
+            md=${arr.divValues.md}
+            lg=${arr.divValues.lg}
+          >
+            ${arr.divName}
+          </Grid>`;
+  };
 
   const outputMUIFiveDivs = [
     `
@@ -372,6 +423,24 @@ function App() {
       ) : (
         <>Select Div</>
       )}
+
+      {newArr.map((arr, index) => (
+        <div
+          key={index}
+          style={{
+            display: "flex",
+            justifyContent: "flex-start",
+            alignItems: "flex-start",
+            flexDirection: "column",
+          }}
+        >
+          <p>
+            {`<Grid item xs={${arr.divValues.xs}} sm={${arr.divValues.sm}} md={${arr.divValues.md}} lg={${arr.divValues.lg}}>`}
+          </p>
+          <p> &emsp; &emsp; {`${arr.divName}`}</p>
+          <p>{`</Grid>`}</p>
+        </div>
+      ))}
       {/* <button
         onClick={() => {
           setMuiOutput(!muiOutput);
@@ -388,7 +457,7 @@ function App() {
       >
         Show output for Bootstrap
       </button> */}
-      {outputMUIFiveDivs}
+      {/* {outputMUIFiveDivs} */}
       {/* {muiOutput && (
         <p style={{ margin: "100px", textAlign: "left" }}>{currentOutput}</p>
       )}
