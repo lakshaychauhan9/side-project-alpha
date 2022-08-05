@@ -140,177 +140,94 @@ function App() {
     },
   ];
 
-  const outputMUIFiveDivs = [
-    `
-    <Grid container justifyContent="space-around" alignItems="center">`,
-    `
-        <Grid item xs={${extraSmallScreen.DivA}} sm={${smallScreen.DivA}} md={${mediumScreen.DivA}} lg={${largeScreen.DivA}}>`,
+  const outputMUIFiveDivs = `
+    <Grid container justifyContent="space-around" alignItems="center">
+        <Grid item xs={${extraSmallScreen.DivA}} sm={${smallScreen.DivA}} md={${mediumScreen.DivA}} lg={${largeScreen.DivA}}>
+          <div>ONE</div>
+        </Grid>
+        <Grid item xs={${extraSmallScreen.DivB}} sm={${smallScreen.DivB}} md={${mediumScreen.DivB}} lg={${largeScreen.DivB}}>
+          <div>TWO</div>
+        </Grid>
+        <Grid item xs={${extraSmallScreen.DivC}} sm={${smallScreen.DivC}} md={${mediumScreen.DivC}} lg={${largeScreen.DivC}}>
+          <div>THREE</div>
+        </Grid>
+        <Grid item xs={${extraSmallScreen.DivD}} sm={${smallScreen.DivD}} md={${mediumScreen.DivD}} lg={${largeScreen.DivD}}>
+          <div>FOUR</div>
+        </Grid>
+        <Grid item xs={${extraSmallScreen.DivE}} sm={${smallScreen.DivE}} md={${mediumScreen.DivE}} lg={${largeScreen.DivE}}>
+          <div>FIVE</div>
+        </Grid>
+    </Grid>
+    `;
+  const outputMUISixDivs = `
+    <Grid container justifyContent="space-around" alignItems="center">
+        <Grid item xs={${extraSmallScreen.DivA}} sm={${smallScreen.DivA}} md={${mediumScreen.DivA}} lg={${largeScreen.DivA}}>
+          <div>ONE</div>
+        </Grid>
+        <Grid item xs={${extraSmallScreen.DivB}} sm={${smallScreen.DivB}} md={${mediumScreen.DivB}} lg={${largeScreen.DivB}}>
+          <div>TWO</div>
+        </Grid>
+        <Grid item xs={${extraSmallScreen.DivC}} sm={${smallScreen.DivC}} md={${mediumScreen.DivC}} lg={${largeScreen.DivC}}>
+          <div>THREE</div>
+        </Grid>
+        <Grid item xs={${extraSmallScreen.DivD}} sm={${smallScreen.DivD}} md={${mediumScreen.DivD}} lg={${largeScreen.DivD}}>
+          <div>FOUR</div>
+        </Grid>
+        <Grid item xs={${extraSmallScreen.DivE}} sm={${smallScreen.DivE}} md={${mediumScreen.DivE}} lg={${largeScreen.DivE}}>
+          <div>FIVE</div>
+        </Grid>
+        <Grid item xs={${extraSmallScreen.DivF}} sm={${smallScreen.DivF}} md={${mediumScreen.DivF}} lg={${largeScreen.DivF}}>
+          <div>SIX</div>
+        </Grid>
+    </Grid>
+    `;
 
-    ` 
-            <div>ONE</div>`,
-    ` 
-        </Grid>`,
-    ` 
-        <Grid item xs={${extraSmallScreen.DivB}} sm={${smallScreen.DivB}} md={${mediumScreen.DivB}} lg={${largeScreen.DivB}}>`,
+  const outputBootStrapFiveDivs = `
+    <div class="container">
+        <div class="row align-items-center justify-content-around">
+            <div class="col-xs-${extraSmallScreen.DivA} col-sm-${smallScreen.DivA} col-md-${mediumScreen.DivA} col-lg-${largeScreen.DivA}">
+              <div>ONE</div>
+            </div>
+            <div class="col-xs-${extraSmallScreen.DivB} col-sm-${smallScreen.DivB} col-md-${mediumScreen.DivB} col-lg-${largeScreen.DivB}">
+              <div>TWO</div>
+            </div>
+            <div class="col-xs-${extraSmallScreen.DivC} col-sm-${smallScreen.DivC} col-md-${mediumScreen.DivC} col-lg-${largeScreen.DivC}">
+              <div>THREE</div>
+            </div>
+            <div class="col-xs-${extraSmallScreen.DivD} col-sm-${smallScreen.DivD} col-md-${mediumScreen.DivD} col-lg-${largeScreen.DivD}">
+              <div>FOUR</div>
+            </div>
+            <div class="col-xs-${extraSmallScreen.DivE} col-sm-${smallScreen.DivE} col-md-${mediumScreen.DivE} col-lg-${largeScreen.DivE}">
+              <div>FIVE</div>
+            </div>
+        </div>
+    </div>
+  `;
 
-    ` 
-            <div>TWO</div>`,
-    ` 
-        </Grid>`,
-    ` 
-        <Grid item xs={${extraSmallScreen.DivC}} sm={${smallScreen.DivC}} md={${mediumScreen.DivC}} lg={${largeScreen.DivC}}>`,
-    ` 
-            <div>THREE</div>`,
-    ` 
-        </Grid>`,
-    ` 
-        <Grid item xs={${extraSmallScreen.DivD}} sm={${smallScreen.DivD}} md={${mediumScreen.DivD}} lg={${largeScreen.DivD}}>`,
-    ` 
-            <div>FOUR</div>`,
-    ` 
-        </Grid>`,
-    ` 
-        <Grid item xs={${extraSmallScreen.DivE}} sm={${smallScreen.DivE}} md={${mediumScreen.DivE}} lg={${largeScreen.DivE}}>`,
-    ` 
-            <div>FIVE</div>`,
-    `
-        </Grid>`,
-    `
-    </Grid>`,
-  ];
-
-  const outputMUISixDivs = [
-    `
-    <Grid container justifyContent="space-around" alignItems="center" >`,
-    `
-        <Grid item xs={${extraSmallScreen.DivA}} sm={${smallScreen.DivA}} md={${mediumScreen.DivA}} lg={${largeScreen.DivA}}>`,
-
-    ` 
-            <div>ONE</div>`,
-    ` 
-        </Grid>`,
-    ` 
-        <Grid item xs={${extraSmallScreen.DivB}} sm={${smallScreen.DivB}} md={${mediumScreen.DivB}} lg={${largeScreen.DivB}}>`,
-
-    ` 
-            <div>TWO</div>`,
-    ` 
-        </Grid>`,
-    ` 
-        <Grid item xs={${extraSmallScreen.DivC}} sm={${smallScreen.DivC}} md={${mediumScreen.DivC}} lg={${largeScreen.DivC}}>`,
-    ` 
-            <div>THREE</div>`,
-    ` 
-        </Grid>`,
-    ` 
-        <Grid item xs={${extraSmallScreen.DivD}} sm={${smallScreen.DivD}} md={${mediumScreen.DivD}} lg={${largeScreen.DivD}}>`,
-    ` 
-            <div>FOUR</div>`,
-    ` 
-        </Grid>`,
-    ` 
-        <Grid item xs={${extraSmallScreen.DivE}} sm={${smallScreen.DivE}} md={${mediumScreen.DivE}} lg={${largeScreen.DivE}}>`,
-    ` 
-            <div>FIVE</div>`,
-    `
-        </Grid>`,
-    ` 
-        <Grid item xs={${extraSmallScreen.DivF}} sm={${smallScreen.DivF}} md={${mediumScreen.DivF}} lg={${largeScreen.DivF}}>`,
-    ` 
-            <div>SIX</div>`,
-    ` 
-        </Grid>`,
-    `
-    </Grid>`,
-  ];
-
-  const outputBootStrapFiveDivs = [
-    `
-    <div class="container">`,
-    `
-        <div class="row align-items-center justify-content-around">`,
-    `
-            <div class="col-xs-${extraSmallScreen.DivA} col-sm-${smallScreen.DivA} col-md-${mediumScreen.DivA} col-lg-${largeScreen.DivA}">`,
-    ` 
-                <div>ONE</div>`,
-    ` 
-            </div>`,
-    `
-            <div class="col-xs-${extraSmallScreen.DivB} col-sm-${smallScreen.DivB} col-md-${mediumScreen.DivB} col-lg-${largeScreen.DivB}">`,
-    ` 
-                <div>TWO</div>`,
-    ` 
-            </div>`,
-    `
-            <div class="col-xs-${extraSmallScreen.DivC} col-sm-${smallScreen.DivC} col-md-${mediumScreen.DivC} col-lg-${largeScreen.DivC}">`,
-    ` 
-                <div>THREE</div>`,
-    ` 
-            </div>`,
-    `
-            <div class="col-xs-${extraSmallScreen.DivD} col-sm-${smallScreen.DivD} col-md-${mediumScreen.DivD} col-lg-${largeScreen.DivD}">`,
-    ` 
-                <div>FOUR</div>`,
-    ` 
-            </div>`,
-    `
-            <div class="col-xs-${extraSmallScreen.DivE} col-sm-${smallScreen.DivE} col-md-${mediumScreen.DivE} col-lg-${largeScreen.DivE}">`,
-    ` 
-                <div>FIVE</div>`,
-    ` 
-            </div>`,
-    `
-        </div>`,
-    `
-    </div>`,
-  ];
-
-  const outputBootStrapSixDivs = [
-    `
-    <div class="container">`,
-    `
-        <div class="row align-items-center justify-content-around">`,
-    `
-            <div class="col-xs-${extraSmallScreen.DivA} col-sm-${smallScreen.DivA} col-md-${mediumScreen.DivA} col-lg-${largeScreen.DivA}">`,
-    ` 
-                <div>ONE</div>`,
-    ` 
-            </div>`,
-    `
-            <div class="col-xs-${extraSmallScreen.DivB} col-sm-${smallScreen.DivB} col-md-${mediumScreen.DivB} col-lg-${largeScreen.DivB}">`,
-    ` 
-                <div>TWO</div>`,
-    ` 
-            </div>`,
-    `
-            <div class="col-xs-${extraSmallScreen.DivC} col-sm-${smallScreen.DivC} col-md-${mediumScreen.DivC} col-lg-${largeScreen.DivC}">`,
-    ` 
-                <div>THREE</div>`,
-    ` 
-            </div>`,
-    `
-            <div class="col-xs-${extraSmallScreen.DivD} col-sm-${smallScreen.DivD} col-md-${mediumScreen.DivD} col-lg-${largeScreen.DivD}">`,
-    ` 
-                <div>FOUR</div>`,
-    ` 
-            </div>`,
-    `
-            <div class="col-xs-${extraSmallScreen.DivE} col-sm-${smallScreen.DivE} col-md-${mediumScreen.DivE} col-lg-${largeScreen.DivE}">`,
-    ` 
-                <div>FIVE</div>`,
-    ` 
-            </div>`,
-    `
-            <div class="col-xs-${extraSmallScreen.DivF} col-sm-${smallScreen.DivF} col-md-${mediumScreen.DivF} col-lg-${largeScreen.DivF}">`,
-    ` 
-                <div>SIX</div>`,
-    ` 
-            </div>`,
-    `
-        </div>`,
-    `
-    </div>`,
-  ];
+  const outputBootStrapSixDivs = `
+    <div class="container">
+        <div class="row align-items-center justify-content-around">
+            <div class="col-xs-${extraSmallScreen.DivA} col-sm-${smallScreen.DivA} col-md-${mediumScreen.DivA} col-lg-${largeScreen.DivA}">
+              <div>ONE</div>
+            </div>
+            <div class="col-xs-${extraSmallScreen.DivB} col-sm-${smallScreen.DivB} col-md-${mediumScreen.DivB} col-lg-${largeScreen.DivB}">
+              <div>TWO</div>
+            </div>
+            <div class="col-xs-${extraSmallScreen.DivC} col-sm-${smallScreen.DivC} col-md-${mediumScreen.DivC} col-lg-${largeScreen.DivC}">
+              <div>THREE</div>
+            </div>
+            <div class="col-xs-${extraSmallScreen.DivD} col-sm-${smallScreen.DivD} col-md-${mediumScreen.DivD} col-lg-${largeScreen.DivD}">
+              <div>FOUR</div>
+            </div>
+            <div class="col-xs-${extraSmallScreen.DivE} col-sm-${smallScreen.DivE} col-md-${mediumScreen.DivE} col-lg-${largeScreen.DivE}">
+              <div>FIVE</div>
+            </div>
+            <div class="col-xs-${extraSmallScreen.DivF} col-sm-${smallScreen.DivF} col-md-${mediumScreen.DivF} col-lg-${largeScreen.DivF}">
+              <div>SIX</div>
+            </div>
+        </div>
+    </div>
+  `;
 
   return (
     <>
@@ -370,6 +287,7 @@ function App() {
               ))}
             </div>
           </div>
+
           <div className="main-container">
             <h2>Select Layout for Medium Screens</h2>
             <div className="radio-buttons">
@@ -390,6 +308,7 @@ function App() {
               ))}
             </div>
           </div>
+
           <div className="main-container">
             <h2>Select Layout for Small Screens</h2>
             <div className="radio-buttons">
