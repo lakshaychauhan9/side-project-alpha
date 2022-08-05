@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useState } from "react";
 import "./Components/RadioButtonStyle.css";
 import { FaRegCheckCircle } from "react-icons/fa";
+import styled from "styled-components";
 
 import {
   LayoutA5,
@@ -16,55 +17,19 @@ import {
   LayoutC6,
   LayoutD6,
 } from "./Components/layoutsForSixDivs";
+import PageTabs from "./Components/PageTabs";
 
 function App() {
   const [largeScreen, setLargeScreen] = useState({});
   const [mediumScreen, setMediumScreen] = useState({});
   const [smallScreen, setSmallScreen] = useState({});
   const [extraSmallScreen, setExtraSmallScreen] = useState({});
-  const [currentData, setCurrentData] = useState([]);
-  const [currentOutput, setCurrentOutput] = useState([]);
-  const [muiOutput, setMuiOutput] = useState(false);
-  const [bootstrapOutput, setBootstrapOutput] = useState(false);
 
-  const newArr = [
-    {
-      divName: "<div A/>",
-      divValues: {
-        xs: 5,
-        md: 5,
-        sm: 5,
-        lg: 5,
-      },
-    },
-    {
-      divName: "<div B/>",
-      divValues: {
-        xs: 4,
-        md: 4,
-        sm: 4,
-        lg: 4,
-      },
-    },
-    {
-      divName: "<div C/>",
-      divValues: {
-        xs: 6,
-        md: 6,
-        sm: 6,
-        lg: 6,
-      },
-    },
-    {
-      divName: "<div D/>",
-      divValues: {
-        xs: 4,
-        md: 4,
-        sm: 4,
-        lg: 4,
-      },
-    },
-  ];
+  const [currentData, setCurrentData] = useState([]);
+
+  const [noOfDivs, setNoOfDivs] = useState(null);
+
+  const [tabsIndex, setTabsIndex] = useState(0);
 
   //Grid item value for xs/sm/lg for respective divs , eg: For div A xs={11}, for div B xs={5}
 
@@ -78,20 +43,13 @@ function App() {
 
   const dataB5 = {
     DivA: 11,
-    DivB: 11,
-    DivC: 11,
-    DivD: 11,
-    DivE: 11,
-  };
-  const dataC5 = {
-    DivA: 11,
     DivB: 3,
     DivC: 3,
     DivD: 3,
-    DivE: 11,
+    DivE: 8,
   };
 
-  const dataD5 = {
+  const dataC5 = {
     DivA: 11,
     DivB: 5,
     DivC: 5,
@@ -99,40 +57,49 @@ function App() {
     DivE: 8,
   };
 
+  const dataD5 = {
+    DivA: 11,
+    DivB: 11,
+    DivC: 11,
+    DivD: 11,
+    DivE: 11,
+  };
+
+  // Layout values for Six Divs
   const dataA6 = {
+    DivA: 11,
+    DivB: 3,
+    DivC: 3,
+    DivD: 3,
+    DivE: 5,
+    DivF: 5,
+  };
+
+  const dataB6 = {
     DivA: 11,
     DivB: 5,
     DivC: 5,
     DivD: 5,
     DivE: 5,
-    DivF: 7,
+    DivF: 5,
   };
 
-  const dataB6 = {
+  const dataC6 = {
+    DivA: 11,
+    DivB: 5,
+    DivC: 5,
+    DivD: 8,
+    DivE: 8,
+    DivF: 8,
+  };
+
+  const dataD6 = {
     DivA: 11,
     DivB: 11,
     DivC: 11,
     DivD: 11,
     DivE: 11,
     DivF: 11,
-  };
-
-  const dataC6 = {
-    DivA: 11,
-    DivB: 3,
-    DivC: 3,
-    DivD: 3,
-    DivE: 11,
-    DivF: 8,
-  };
-
-  const dataD6 = {
-    DivA: 11,
-    DivB: 5,
-    DivC: 5,
-    DivD: 8,
-    DivE: 8,
-    DivF: 5,
   };
 
   const dataForFiveDivs = [
@@ -173,131 +140,176 @@ function App() {
     },
   ];
 
-  const newString = (arr) => {
-    return `<Grid
-            item
-            xs=${arr.divValues.xs}
-            sm=${arr.divValues.sm}
-            md=${arr.divValues.md}
-            lg=${arr.divValues.lg}
-          >
-            ${arr.divName}
-          </Grid>`;
-  };
-
   const outputMUIFiveDivs = [
     `
-            <Grid item xs={${extraSmallScreen.DivA}} sm={${smallScreen.DivA}} md={${mediumScreen.DivA}} lg={${largeScreen.DivA}}>`,
+    <Grid container justifyContent="space-around" alignItems="center">`,
+    `
+        <Grid item xs={${extraSmallScreen.DivA}} sm={${smallScreen.DivA}} md={${mediumScreen.DivA}} lg={${largeScreen.DivA}}>`,
 
-    <br />,
     ` 
-          <Div A/>`,
-    <br />,
+            <div>ONE</div>`,
     ` 
-      </Grid>`,
-    <br />,
+        </Grid>`,
     ` 
-            <Grid item xs={${extraSmallScreen.DivB}} sm={${smallScreen.DivB}} md={${mediumScreen.DivB}} lg={${largeScreen.DivB}}>`,
+        <Grid item xs={${extraSmallScreen.DivB}} sm={${smallScreen.DivB}} md={${mediumScreen.DivB}} lg={${largeScreen.DivB}}>`,
 
-    <br />,
     ` 
-        <Div B />`,
-    <br />,
+            <div>TWO</div>`,
     ` 
-      </Grid>`,
-    <br />,
+        </Grid>`,
     ` 
-            <Grid item xs={${extraSmallScreen.DivC}} sm={${smallScreen.DivC}} md={${mediumScreen.DivC}} lg={${largeScreen.DivC}}>`,
-    <br />,
+        <Grid item xs={${extraSmallScreen.DivC}} sm={${smallScreen.DivC}} md={${mediumScreen.DivC}} lg={${largeScreen.DivC}}>`,
     ` 
-        <Div C/>`,
-    <br />,
+            <div>THREE</div>`,
     ` 
-      </Grid>`,
-    <br />,
+        </Grid>`,
     ` 
-            <Grid item xs={${extraSmallScreen.DivD}} sm={${smallScreen.DivD}} md={${mediumScreen.DivD}} lg={${largeScreen.DivD}}>`,
-    <br />,
+        <Grid item xs={${extraSmallScreen.DivD}} sm={${smallScreen.DivD}} md={${mediumScreen.DivD}} lg={${largeScreen.DivD}}>`,
     ` 
-        <Div D/>`,
-    <br />,
+            <div>FOUR</div>`,
     ` 
-      </Grid>`,
-    <br />,
+        </Grid>`,
     ` 
-      <Grid item xs={${extraSmallScreen.DivE}} sm={${smallScreen.DivE}} md={${mediumScreen.DivE}} lg={${largeScreen.DivE}}>`,
-    <br />,
+        <Grid item xs={${extraSmallScreen.DivE}} sm={${smallScreen.DivE}} md={${mediumScreen.DivE}} lg={${largeScreen.DivE}}>`,
     ` 
-        <Div E/>`,
-    <br />,
-    ` 
-      </Grid>`,
-    <br />,
-    ` 
-      
-      `,
+            <div>FIVE</div>`,
+    `
+        </Grid>`,
+    `
+    </Grid>`,
   ];
 
   const outputMUISixDivs = [
     `
-            <Grid item xs={${extraSmallScreen.DivA}} sm={${smallScreen.DivA}} md={${mediumScreen.DivA}} lg={${largeScreen.DivA}}>`,
+    <Grid container justifyContent="space-around" alignItems="center" >`,
+    `
+        <Grid item xs={${extraSmallScreen.DivA}} sm={${smallScreen.DivA}} md={${mediumScreen.DivA}} lg={${largeScreen.DivA}}>`,
 
-    <br />,
     ` 
-          <Div A/>`,
-    <br />,
+            <div>ONE</div>`,
     ` 
-      </Grid>`,
-    <br />,
+        </Grid>`,
     ` 
-            <Grid item xs={${extraSmallScreen.DivB}} sm={${smallScreen.DivB}} md={${mediumScreen.DivB}} lg={${largeScreen.DivB}}>`,
+        <Grid item xs={${extraSmallScreen.DivB}} sm={${smallScreen.DivB}} md={${mediumScreen.DivB}} lg={${largeScreen.DivB}}>`,
 
-    <br />,
     ` 
-        <Div B />`,
-    <br />,
+            <div>TWO</div>`,
     ` 
-      </Grid>`,
-    <br />,
+        </Grid>`,
     ` 
-            <Grid item xs={${extraSmallScreen.DivC}} sm={${smallScreen.DivC}} md={${mediumScreen.DivC}} lg={${largeScreen.DivC}}>`,
-    <br />,
+        <Grid item xs={${extraSmallScreen.DivC}} sm={${smallScreen.DivC}} md={${mediumScreen.DivC}} lg={${largeScreen.DivC}}>`,
     ` 
-        <Div C/>`,
-    <br />,
+            <div>THREE</div>`,
     ` 
-      </Grid>`,
-    <br />,
+        </Grid>`,
     ` 
-            <Grid item xs={${extraSmallScreen.DivD}} sm={${smallScreen.DivD}} md={${mediumScreen.DivD}} lg={${largeScreen.DivD}}>`,
-    <br />,
+        <Grid item xs={${extraSmallScreen.DivD}} sm={${smallScreen.DivD}} md={${mediumScreen.DivD}} lg={${largeScreen.DivD}}>`,
     ` 
-        <Div D/>`,
-    <br />,
+            <div>FOUR</div>`,
     ` 
-      </Grid>`,
-    <br />,
+        </Grid>`,
     ` 
-      <Grid item xs={${extraSmallScreen.DivE}} sm={${smallScreen.DivE}} md={${mediumScreen.DivE}} lg={${largeScreen.DivE}}>`,
-    <br />,
+        <Grid item xs={${extraSmallScreen.DivE}} sm={${smallScreen.DivE}} md={${mediumScreen.DivE}} lg={${largeScreen.DivE}}>`,
     ` 
-        <Div E/>`,
-    <br />,
+            <div>FIVE</div>`,
+    `
+        </Grid>`,
     ` 
-      </Grid>`,
-    <br />,
+        <Grid item xs={${extraSmallScreen.DivF}} sm={${smallScreen.DivF}} md={${mediumScreen.DivF}} lg={${largeScreen.DivF}}>`,
     ` 
-      <Grid item xs={${extraSmallScreen.DivF}} sm={${smallScreen.DivF}} md={${mediumScreen.DivF}} lg={${largeScreen.DivF}}>`,
-    <br />,
+            <div>SIX</div>`,
     ` 
-        <Div F/>`,
-    <br />,
+        </Grid>`,
+    `
+    </Grid>`,
+  ];
+
+  const outputBootStrapFiveDivs = [
+    `
+    <div class="container">`,
+    `
+        <div class="row align-items-center justify-content-around">`,
+    `
+            <div class="col-xs-${extraSmallScreen.DivA} col-sm-${smallScreen.DivA} col-md-${mediumScreen.DivA} col-lg-${largeScreen.DivA}">`,
     ` 
-      </Grid>`,
-    <br />,
+                <div>ONE</div>`,
     ` 
-      
-      `,
+            </div>`,
+    `
+            <div class="col-xs-${extraSmallScreen.DivB} col-sm-${smallScreen.DivB} col-md-${mediumScreen.DivB} col-lg-${largeScreen.DivB}">`,
+    ` 
+                <div>TWO</div>`,
+    ` 
+            </div>`,
+    `
+            <div class="col-xs-${extraSmallScreen.DivC} col-sm-${smallScreen.DivC} col-md-${mediumScreen.DivC} col-lg-${largeScreen.DivC}">`,
+    ` 
+                <div>THREE</div>`,
+    ` 
+            </div>`,
+    `
+            <div class="col-xs-${extraSmallScreen.DivD} col-sm-${smallScreen.DivD} col-md-${mediumScreen.DivD} col-lg-${largeScreen.DivD}">`,
+    ` 
+                <div>FOUR</div>`,
+    ` 
+            </div>`,
+    `
+            <div class="col-xs-${extraSmallScreen.DivE} col-sm-${smallScreen.DivE} col-md-${mediumScreen.DivE} col-lg-${largeScreen.DivE}">`,
+    ` 
+                <div>FIVE</div>`,
+    ` 
+            </div>`,
+    `
+        </div>`,
+    `
+    </div>`,
+  ];
+
+  const outputBootStrapSixDivs = [
+    `
+    <div class="container">`,
+    `
+        <div class="row align-items-center justify-content-around">`,
+    `
+            <div class="col-xs-${extraSmallScreen.DivA} col-sm-${smallScreen.DivA} col-md-${mediumScreen.DivA} col-lg-${largeScreen.DivA}">`,
+    ` 
+                <div>ONE</div>`,
+    ` 
+            </div>`,
+    `
+            <div class="col-xs-${extraSmallScreen.DivB} col-sm-${smallScreen.DivB} col-md-${mediumScreen.DivB} col-lg-${largeScreen.DivB}">`,
+    ` 
+                <div>TWO</div>`,
+    ` 
+            </div>`,
+    `
+            <div class="col-xs-${extraSmallScreen.DivC} col-sm-${smallScreen.DivC} col-md-${mediumScreen.DivC} col-lg-${largeScreen.DivC}">`,
+    ` 
+                <div>THREE</div>`,
+    ` 
+            </div>`,
+    `
+            <div class="col-xs-${extraSmallScreen.DivD} col-sm-${smallScreen.DivD} col-md-${mediumScreen.DivD} col-lg-${largeScreen.DivD}">`,
+    ` 
+                <div>FOUR</div>`,
+    ` 
+            </div>`,
+    `
+            <div class="col-xs-${extraSmallScreen.DivE} col-sm-${smallScreen.DivE} col-md-${mediumScreen.DivE} col-lg-${largeScreen.DivE}">`,
+    ` 
+                <div>FIVE</div>`,
+    ` 
+            </div>`,
+    `
+            <div class="col-xs-${extraSmallScreen.DivF} col-sm-${smallScreen.DivF} col-md-${mediumScreen.DivF} col-lg-${largeScreen.DivF}">`,
+    ` 
+                <div>SIX</div>`,
+    ` 
+            </div>`,
+    `
+        </div>`,
+    `
+    </div>`,
   ];
 
   return (
@@ -311,7 +323,7 @@ function App() {
               name="numberOfDiv"
               onClick={() => {
                 setCurrentData(dataForFiveDivs);
-                setCurrentOutput(outputMUIFiveDivs);
+                setNoOfDivs(5);
               }}
             />
             <span className="radio-btn btn-input-divs">
@@ -325,7 +337,7 @@ function App() {
               name="numberOfDiv"
               onClick={() => {
                 setCurrentData(dataForSixDivs);
-                setCurrentOutput(outputMUISixDivs);
+                setNoOfDivs(6);
               }}
             />
             <span className="radio-btn ">
@@ -336,7 +348,7 @@ function App() {
         </div>
       </div>
 
-      {currentData.length > 2 ? (
+      {currentData.length > 2 && (
         <>
           <div className="main-container">
             <h2>Select Layout for Large Screens</h2>
@@ -420,52 +432,67 @@ function App() {
             </div>
           </div>
         </>
-      ) : (
-        <>Select Div</>
       )}
 
-      {newArr.map((arr, index) => (
-        <div
-          key={index}
-          style={{
-            display: "flex",
-            justifyContent: "flex-start",
-            alignItems: "flex-start",
-            flexDirection: "column",
-          }}
-        >
-          <p>
-            {`<Grid item xs={${arr.divValues.xs}} sm={${arr.divValues.sm}} md={${arr.divValues.md}} lg={${arr.divValues.lg}}>`}
-          </p>
-          <p> &emsp; &emsp; {`${arr.divName}`}</p>
-          <p>{`</Grid>`}</p>
-        </div>
-      ))}
-      {/* <button
-        onClick={() => {
-          setMuiOutput(!muiOutput);
-          setBootstrapOutput(false);
-        }}
-      >
-        Show output for Material UI grid
-      </button>
-      <button
-        onClick={() => {
-          setMuiOutput(false);
-          setBootstrapOutput(!bootstrapOutput);
-        }}
-      >
-        Show output for Bootstrap
-      </button> */}
-      {/* {outputMUIFiveDivs} */}
-      {/* {muiOutput && (
-        <p style={{ margin: "100px", textAlign: "left" }}>{currentOutput}</p>
+      {noOfDivs > 0 && (
+        <>
+          <PageTabs setTabsIndex={setTabsIndex} />
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {tabsIndex === 1 && noOfDivs === 5 ? (
+              <pre>
+                <code>
+                  <OutputDiv>{outputMUIFiveDivs}</OutputDiv>
+                </code>
+              </pre>
+            ) : tabsIndex === 1 && noOfDivs === 6 ? (
+              <pre>
+                <code>
+                  <OutputDiv>{outputMUISixDivs}</OutputDiv>
+                </code>
+              </pre>
+            ) : tabsIndex === 2 && noOfDivs === 5 ? (
+              <pre>
+                <code>
+                  <OutputDiv>{outputBootStrapFiveDivs}</OutputDiv>
+                </code>
+              </pre>
+            ) : tabsIndex === 2 && noOfDivs === 6 ? (
+              <pre>
+                <code>
+                  <OutputDiv>{outputBootStrapSixDivs}</OutputDiv>
+                </code>
+              </pre>
+            ) : (
+              "Select Output"
+            )}
+          </div>
+        </>
       )}
-      {bootstrapOutput && (
-        <p style={{ margin: "100px", textAlign: "left" }}>Hi</p>
-      )} */}
     </>
   );
 }
 
 export default App;
+
+const OutputDiv = styled.div`
+  width: 80vw;
+  height: auto;
+  background-color: #001200;
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 200px;
+  padding: 0px 0px 25px 0px;
+  p {
+    margin: 0px;
+    padding: 0px;
+  }
+`;
