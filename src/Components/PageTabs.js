@@ -38,6 +38,12 @@ const PageTabs = ({ setTabsIndex }) => {
         >
           Bootstrap
         </StyledSpan>
+        <StyledSpan
+          //   className={tabsIndex === 2 ? "selectebTab" : ""}
+          onClick={() => handleClick(3)}
+        >
+          Mui + Styled Components full code
+        </StyledSpan>
       </MainContainer>
       {/* <div style={{ width: "50%", background: "#001e02" }}>
         {tabsIndex === 1 ? <>{muiOP}</> : "Bootstrap"}
