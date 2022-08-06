@@ -1,4 +1,3 @@
-import "./App.css";
 import React, { useState } from "react";
 import "./Components/RadioButtonStyle.css";
 import { FaRegCheckCircle } from "react-icons/fa";
@@ -18,6 +17,7 @@ import {
   LayoutD6,
 } from "./Components/layoutsForSixDivs";
 import PageTabs from "./Components/PageTabs";
+import Footer from "./Components/Footer";
 
 function App() {
   const [largeScreen, setLargeScreen] = useState({});
@@ -337,7 +337,7 @@ const MainContainer = styled.div\`
   // main return function
 
   return (
-    <>
+    <MainContainer>
       <div className="main-container">
         <h2>Select no. of Divs or Containers</h2>
         <div className="btn-input-divs">
@@ -521,11 +521,20 @@ const MainContainer = styled.div\`
           </div>
         </>
       )}
-    </>
+      <Footer />
+    </MainContainer>
   );
 }
 
 export default App;
+
+const MainContainer = styled.div`
+  width: 100%;
+  min-height: 100vh;
+  background: #fcfcfc;
+  margin: 0px;
+  box-sizing: border-box;
+`;
 
 const OutputDiv = styled.div`
   width: 80vw;
@@ -536,7 +545,7 @@ const OutputDiv = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-bottom: 200px;
+  margin-bottom: 50px;
   padding: 10px;
   border-radius: 10px;
   border: 2px solid #eee;
