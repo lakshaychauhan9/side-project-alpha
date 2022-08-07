@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Components/RadioButtonStyle.css";
 import { FaRegCheckCircle } from "react-icons/fa";
+import { SiMaterialui, SiBootstrap, SiStyledcomponents } from "react-icons/si";
 import styled from "styled-components";
 
 import {
@@ -338,6 +339,10 @@ const MainContainer = styled.div\`
 
   return (
     <MainContainer>
+      <h1>
+        Generate boiler plate code for responsive grid layouts -> MaterialUI
+        Grid or Bootstrap
+      </h1>
       <div className="main-container">
         <h2>Select no. of Divs or Containers</h2>
         <div className="btn-input-divs">
@@ -521,6 +526,11 @@ const MainContainer = styled.div\`
           </div>
         </>
       )}
+      <p>
+        *this is only boiler plate code for content justified space-around and
+        items align centered. Please note you will still need to style height,
+        margin padding etc for inner divs as well
+      </p>
       <Footer />
     </MainContainer>
   );
@@ -534,10 +544,22 @@ const MainContainer = styled.div`
   background: #fcfcfc;
   margin: 0px;
   box-sizing: border-box;
+  & > h1 {
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    margin: 100px 200px;
+    font-size: 40px;
+    text-shadow: 2px 2px 2px #ff7dc7;
+  }
+  & > p {
+    text-align: center;
+
+    margin: 25px 250px;
+  }
 `;
 
 const OutputDiv = styled.div`
-  width: 80vw;
+  width: 70vw;
   height: auto;
   box-sizing: border-box;
   background-color: #000d00;
@@ -549,7 +571,7 @@ const OutputDiv = styled.div`
   padding: 10px;
   border-radius: 10px;
   border: 2px solid #eee;
-  box-shadow: 0px 0px 20px 5px #272727;
+  box-shadow: 0px 0px 25px 5px #272727;
   p {
     margin: 0px;
     padding: 0px;
