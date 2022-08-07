@@ -8,16 +8,16 @@ export const LayoutA5 = () => {
       <Grid item xs={11}>
         <ShapeA className="one">div one</ShapeA>
       </Grid>
-      <Grid item xs={5.5}>
+      <Grid item xs={5}>
         <ShapeA className="two">div two</ShapeA>
       </Grid>
-      <Grid item xs={5.5}>
+      <Grid item xs={5}>
         <ShapeA className="three">div three</ShapeA>
       </Grid>
-      <Grid item xs={5.5}>
+      <Grid item xs={5}>
         <ShapeA className="four">div four</ShapeA>
       </Grid>
-      <Grid item xs={5.5}>
+      <Grid item xs={5}>
         <ShapeA className="five">div five</ShapeA>
       </Grid>
     </Square>
