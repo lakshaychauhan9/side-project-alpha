@@ -35,9 +35,7 @@ const Footer = () => {
           >
             <SiTwitter />
           </a>
-          <a href="" target="_blank" rel="noopener noreferrer">
-            <FiLink />
-          </a>
+          <FiLink />
         </span>
       </div>
     </FooterContainer>
