@@ -35,7 +35,13 @@ const Footer = () => {
           >
             <SiTwitter />
           </a>
-          <FiLink />
+          <a
+            href="https://lakshaychauhan.xyz"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FiLink />
+          </a>
         </span>
       </div>
     </FooterContainer>

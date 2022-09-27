@@ -21,19 +21,26 @@ import PageTabs from "./Components/PageTabs";
 import Footer from "./Components/Footer";
 
 function App() {
+  //  value for various divs for particular screen sizes stored using below states.
   const [largeScreen, setLargeScreen] = useState({});
   const [mediumScreen, setMediumScreen] = useState({});
   const [smallScreen, setSmallScreen] = useState({});
   const [extraSmallScreen, setExtraSmallScreen] = useState({});
 
+  // collectively all data (i.e  values for various screen sizes) for either 5 divs or 6 divs will be stored in currentData state.
+  // This is only so I can use map function for various inputs instead of writting them all seperately.
   const [currentData, setCurrentData] = useState([]);
 
+  // no of divs to be selected by user .
   const [noOfDivs, setNoOfDivs] = useState(null);
 
+  // to be selected by user for various outputs.
+  //  1 = materialUI output ; 2 = bootstrap output; 3 = custom full source code output
   const [tabsIndex, setTabsIndex] = useState(0);
 
-  //Grid item value for xs/sm/lg for respective divs , eg: For div A xs={11}, for div B xs={5}
-
+  // Grid item value for xs/sm/md/lg for respective divs.
+  //  For each layout arrangement there needs to be a data. For simplyfication purpose I have used only four layout arrangements for each 5divs or 6divs.
+  //  eg: below dataA5 = For div A xs={11}, for div B xs={5}, for C xs={5} and so on if dataA5 is selected for ExtraSmall screens layout
   const dataA5 = {
     DivOne: 11,
     DivTwo: 5,
@@ -103,6 +110,7 @@ function App() {
     DivSix: 11,
   };
 
+  //  this is final binding of both data and layouts in a single array which will be set into currentData depending on user's choice.
   const dataForFiveDivs = [
     {
       data: dataA5,
@@ -141,6 +149,7 @@ function App() {
     },
   ];
 
+  // all output strings
   const outputMUIFiveDivs = `
 <Grid container justifyContent="space-around" alignItems="center">
   <Grid item xs={${extraSmallScreen.DivOne}} sm={${smallScreen.DivOne}} md={${mediumScreen.DivOne}} lg={${largeScreen.DivOne}}>
@@ -343,6 +352,14 @@ const MainContainer = styled.div\`
         Generate boiler plate code for responsive grid layouts -> MaterialUI
         Grid or Bootstrap
       </h1>
+      <p>
+        How to use: <br />
+        <ol>
+          <li>Select no. of divs/ containers you need to have on page</li>
+          <li>Select layout arrangements of divs for different screen sizes</li>
+          <li>Select output: MUI or Bootstrap or full source code</li>
+        </ol>
+      </p>
       <div className="main-container">
         <h2>Select no. of Divs or Containers</h2>
         <div className="btn-input-divs">
@@ -531,6 +548,24 @@ const MainContainer = styled.div\`
         items align centered. Please note you will still need to style height,
         margin padding etc for inner divs as well
       </p>
+      <p style={{ color: "green" }}>
+        {" "}
+        *I have tried to design this app so that its easier to customise as well
+        as code is readable while maintaining all the functionality. For any
+        inputs/queries feel free to contact me {":)"}
+      </p>
+      <p>
+        To use custom strings and values make following changes to source code:{" "}
+        <br />
+        <ol>
+          <li>
+            Change values for various data in the App.js and respectively change
+            layouts if needed.
+          </li>
+          <li>Change output strings as per need in App.js </li>
+        </ol>
+      </p>
+
       <Footer />
     </MainContainer>
   );
