@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Components/RadioButtonStyle.css";
 import { FaRegCheckCircle } from "react-icons/fa";
-// import { SiMaterialui, SiBootstrap, SiStyledcomponents } from "react-icons/si";
 import styled from "styled-components";
 
 import {
@@ -398,7 +397,9 @@ const MainContainer = styled.div\`
         <>
           <div className="main-container">
             <h2>Select Layout for Large Screens</h2>
-            <p>Screen width > 1024px desktops, laptops</p>
+            <p>
+              Screen width {">"} 1024px eg : desktops, laptops, ipad pro etc
+            </p>
 
             <div className="radio-buttons">
               {currentData.map((item, index) => (
@@ -421,7 +422,7 @@ const MainContainer = styled.div\`
 
           <div className="main-container">
             <h2>Select Layout for Medium Screens</h2>
-            <p>Screen width > 1024px eg: desktops, laptops</p>
+            <p>Screen width {">"} 768px eg: tablets, ipad etc</p>
 
             <div className="radio-buttons">
               {currentData.map((item, index) => (
@@ -444,7 +445,7 @@ const MainContainer = styled.div\`
 
           <div className="main-container">
             <h2>Select Layout for Small Screens</h2>
-            <p>Screen width > 1024px desktops, laptops</p>
+            <p>Screen width {">"} 576px eg: mobile phones etc</p>
 
             <div className="radio-buttons">
               {currentData.map((item, index) => (
@@ -467,7 +468,7 @@ const MainContainer = styled.div\`
 
           <div className="main-container">
             <h2>Select Layout for Extra Small Screens</h2>
-            <p>Screen width > 1024px desktops, laptops</p>
+            <p>Screen width {"<"} 576px eg : mobile phones etc</p>
 
             <div className="radio-buttons">
               {currentData.map((item, index) => (
@@ -546,13 +547,14 @@ const MainContainer = styled.div\`
       <p>
         *this is only boiler plate code for content justified space-around and
         items align centered. Please note you will still need to style height,
-        margin padding etc for inner divs as well
+        margin padding or write media queries etc for inner divs accordingly.
       </p>
       <p style={{ color: "green" }}>
         {" "}
-        *I have tried to design this app so that its easier to customise as well
-        as code is readable while maintaining all the functionality. For any
-        inputs/queries feel free to contact me {":)"}
+        *I have tried to design this app so that its easier to customise and
+        code is readable while maintaining all the functionality although I
+        might not have followed proper industry standards (I am kinda of a
+        newbie). For any inputs/queries feel free to contact me {":)"}
       </p>
       <p>
         To use custom strings and values make following changes to source code:{" "}
@@ -564,6 +566,15 @@ const MainContainer = styled.div\`
           </li>
           <li>Change output strings as per need in App.js </li>
         </ol>
+      </p>
+      <p style={{ color: "coral" }}>
+        Bootstrap grid{" "}
+        <a href="https://getbootstrap.com/docs/4.0/layout/grid/">
+          documentation{" "}
+        </a>
+        <br />
+        MaterialUI grid
+        <a href="https://mui.com/material-ui/react-grid/"> documentation </a>
       </p>
 
       <Footer />
