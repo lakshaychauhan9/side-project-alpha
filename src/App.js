@@ -109,7 +109,7 @@ function App() {
     DivSix: 11,
   };
 
-  //  this is final binding of both data and layouts in a single array which will be set into currentData depending on user's choice.
+  //  this is final binding of both data and layouts in a single array which will be set into currentData depending on user's choice. line 29-31
   const dataForFiveDivs = [
     {
       data: dataA5,
@@ -348,8 +348,8 @@ const MainContainer = styled.div\`
   return (
     <MainContainer>
       <h1>
-        Generate boiler plate code for responsive grid layouts -> MaterialUI
-        Grid or Bootstrap
+        Generate boiler plate code for responsive grid layouts - MaterialUI Grid
+        or Bootstrap
       </h1>
       <p>
         How to use: <br />
@@ -493,7 +493,7 @@ const MainContainer = styled.div\`
 
       {noOfDivs > 0 && (
         <>
-          <PageTabs setTabsIndex={setTabsIndex} />
+          <PageTabs setTabsIndex={setTabsIndex} tabsIndex={tabsIndex} />
           <div
             style={{
               width: "100%",
@@ -539,22 +539,27 @@ const MainContainer = styled.div\`
                 </code>
               </pre>
             ) : (
-              "Select Output"
+              <p style={{ color: "#800000" }}>* Select Output</p>
             )}
           </div>
         </>
       )}
       <p>
-        *this is only boiler plate code for content justified space-around and
+        * this is only boiler plate code for content justified space-around and
         items align centered. Please note you will still need to style height,
         margin padding or write media queries etc for inner divs accordingly.
       </p>
       <p style={{ color: "green" }}>
         {" "}
-        *I have tried to design this app so that its easier to customise and
+        * I have tried to design this app so that its easier to customise and
         code is readable while maintaining all the functionality although I
         might not have followed proper industry standards (I am kinda of a
-        newbie). For any inputs/queries feel free to contact me {":)"}
+        newbie,{" "}
+        <span style={{ color: "#1c5700", fontWeight: "700" }}>
+          {" "}
+          this app is a portfolio project
+        </span>
+        ). For any inputs/queries feel free to contact me {":)"}
       </p>
       <p>
         To use custom strings and values make following changes to source code:{" "}
@@ -593,8 +598,9 @@ const MainContainer = styled.div`
   & > h1 {
     text-align: center;
     font-family: "Raleway", sans-serif;
-    margin: 100px 200px;
+    margin: 75px 100px;
     font-size: 40px;
+    color: #171717;
     text-shadow: 2px 2px 2px #ff7dc7;
   }
   & > p {
